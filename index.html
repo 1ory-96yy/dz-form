@@ -7,48 +7,51 @@
   <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
             padding: 20px;
         }
-        #messages {
-            border: 1px solid #ddd;
-            padding: 10px;
+        .question {
             margin-bottom: 20px;
-            min-height: 200px;
-        }
-        .message {
+            padding: 15px;
             background-color: #f5f5f5;
-            padding: 10px;
-            margin-bottom: 10px;
             border-radius: 5px;
         }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        textarea {
-            height: 100px;
-            padding: 10px;
-        }
         button {
-            padding: 10px;
+            padding: 10px 20px;
             background-color: #4CAF50;
             color: white;
             border: none;
             cursor: pointer;
+            margin-top: 20px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
         }
   </style>
 </head>
 <body>
-   <h1>Форум</h1>
-    <div id="messages">
-        <div class="message">Привіт! Це перше повідомлення.</div>
-    </div>
-    <form id="messageForm">
-        <textarea id="messageText" placeholder="Введіть ваше повідомлення..." required></textarea>
-        <button type="submit">Надіслати</button>
+   <h1>Тест</h1>
+    <form id="quizForm">
+        <div class="question">
+            <p>1. Яка столиця України?</p>
+            <label><input type="radio" name="q1" value="a"> Київ</label><br>
+            <label><input type="radio" name="q1" value="b"> Львів</label>
+        </div>
+        <div class="question">
+            <p>2. Найбільша планета Сонячної системи?</p>
+            <label><input type="radio" name="q2" value="a"> Юпітер</label><br>
+            <label><input type="radio" name="q2" value="b"> Земля</label>
+        </div>
+        <div class="question">
+            <p>3. 2 + 2 * 2 = ?</p>
+            <label><input type="radio" name="q3" value="a"> 6</label><br>
+            <label><input type="radio" name="q3" value="b"> 8</label>
+        </div>
+        <button type="submit">Завершити тест</button>
     </form>
+    <div id="result"></div>
 </body>
 </html>
