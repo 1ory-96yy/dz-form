@@ -1,11 +1,16 @@
-const form = document.getElementById('messageForm');
-        const messageText = document.getElementById('messageText');
-        const messagesContainer = document.getElementById('messages');
+const form = document.getElementById('orderForm');
+        const orderSummary = document.getElementById('orderSummary');
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            const messageDiv = document.createElement('div');
-            messageDiv.className = 'message';
-            messageDiv.textContent = messageText.value;
-            messagesContainer.appendChild(messageDiv);
-            messageText.value = '';
+            const book = document.getElementById('bookSelect').value;
+            const quantity = document.getElementById('quantity').value;
+            const name = document.getElementById('customerName').value;
+            const date = document.getElementById('deliveryDate').value;
+            const address = document.getElementById('address').value;
+            orderSummary.innerHTML = `
+                <p>${name}, дякуємо за замовлення.</p>
+                <p>${quantity} екземпляр(ів) книги "${book}" буде доставлено ${date} за адресою: ${address}.</p>
+            `;
+            orderSummary.style.display = 'block';
+            form.reset();
         });
