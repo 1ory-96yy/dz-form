@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Вхід</title>
+  <script src="main.js" defer></script>
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #messages {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+            min-height: 200px;
+        }
+        .message {
+            background-color: #f5f5f5;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        textarea {
+            height: 100px;
+            padding: 10px;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+  </style>
+</head>
+<body>
+   <h1>Форум</h1>
+    <div id="messages">
+        <div class="message">Привіт! Це перше повідомлення.</div>
+    </div>
+    <form id="messageForm">
+        <textarea id="messageText" placeholder="Введіть ваше повідомлення..." required></textarea>
+        <button type="submit">Надіслати</button>
+    </form>
+</body>
+</html>
