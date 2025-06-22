@@ -11,11 +11,16 @@
             margin: 0 auto;
             padding: 20px;
         }
-        .question {
-            margin-bottom: 20px;
+        #output {
+            margin-top: 20px;
             padding: 15px;
-            background-color: #f5f5f5;
-            border-radius: 5px;
+            border: 1px solid #ddd;
+            min-height: 100px;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
         }
         button {
             padding: 10px 20px;
@@ -23,35 +28,33 @@
             color: white;
             border: none;
             cursor: pointer;
-            margin-top: 20px;
-        }
-        #result {
-            margin-top: 20px;
-            font-weight: bold;
-            font-size: 18px;
         }
   </style>
 </head>
 <body>
-   <h1>Тест</h1>
-    <form id="quizForm">
-        <div class="question">
-            <p>1. Яка столиця України?</p>
-            <label><input type="radio" name="q1" value="a"> Київ</label><br>
-            <label><input type="radio" name="q1" value="b"> Львів</label>
+   <h1>Стилізація тексту</h1>
+    <form id="textForm">
+        <textarea id="textInput" rows="5" style="width: 100%; padding: 10px;"></textarea>
+        <div class="controls">
+            <label>
+                Колір:
+                <input type="color" id="colorPicker" value="#000000">
+            </label>
+            <label>
+                Розмір:
+                <input type="range" id="sizeSlider" min="10" max="40" value="16">
+                <span id="sizeValue">16px</span>
+            </label>
+            <label>
+                <input type="checkbox" id="boldCheckbox"> Жирний
+            </label>
+            <label>
+                <input type="checkbox" id="italicCheckbox"> Курсив
+            </label>
         </div>
-        <div class="question">
-            <p>2. Найбільша планета Сонячної системи?</p>
-            <label><input type="radio" name="q2" value="a"> Юпітер</label><br>
-            <label><input type="radio" name="q2" value="b"> Земля</label>
-        </div>
-        <div class="question">
-            <p>3. 2 + 2 * 2 = ?</p>
-            <label><input type="radio" name="q3" value="a"> 6</label><br>
-            <label><input type="radio" name="q3" value="b"> 8</label>
-        </div>
-        <button type="submit">Завершити тест</button>
+        <button type="submit">Застосувати стилі</button>
     </form>
-    <div id="result"></div>
+    <h2>Результат:</h2>
+    <div id="output"></div>
 </body>
 </html>
