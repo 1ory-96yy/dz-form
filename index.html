@@ -4,51 +4,90 @@
   <meta charset="UTF-8">
   <title>Вхід</title>
   <script src="main.js" defer></script>
-  <style>
+  <style>       
         body {
             font-family: Arial, sans-serif;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
-        #messages {
-            border: 1px solid #ddd;
-            padding: 10px;
+        .form-section {
             margin-bottom: 20px;
-            min-height: 200px;
-        }
-        .message {
+            padding: 15px;
             background-color: #f5f5f5;
-            padding: 10px;
-            margin-bottom: 10px;
             border-radius: 5px;
         }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        textarea {
-            height: 100px;
-            padding: 10px;
-        }
         button {
-            padding: 10px;
+            padding: 10px 20px;
             background-color: #4CAF50;
             color: white;
             border: none;
             cursor: pointer;
+            margin-top: 10px;
+        }
+        .seat {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ddd;
+            cursor: pointer;
+        }
+        .seat.selected {
+            background-color: #ff9800;
+        }
+        .seat.booked {
+            background-color: #f44336;
+            cursor: not-allowed;
+        }
+        #seatsContainer {
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
         }
   </style>
 </head>
 <body>
-   <h1>Форум</h1>
-    <div id="messages">
-        <div class="message">Привіт! Це перше повідомлення.</div>
+   <h1>Бронювання квитків на поїзд</h1>
+    <div class="form-section">
+        <h2>Нове бронювання</h2>
+        <form id="bookingForm">
+            <label>
+                Напрямок:
+                <select id="routeSelect" required>
+                    <option value="Київ-Львів">Київ-Львів</option>
+                    <option value="Львів-Одеса">Львів-Одеса</option>
+                    <option value="Харків-Дніпро">Харків-Дніпро</option>
+                </select>
+            </label>
+            <label>
+                Дата поїздки:
+                <input type="date" id="travelDate" required>
+            </label>
+            <div id="seatsContainer">
+                <h3>Оберіть місця:</h3>
+                <div id="seats"></div>
+            </div>
+            <button type="submit">Забронювати</button>
+        </form>
     </div>
-    <form id="messageForm">
-        <textarea id="messageText" placeholder="Введіть ваше повідомлення..." required></textarea>
-        <button type="submit">Надіслати</button>
-    </form>
+    <div class="form-section">
+        <h2>Мої бронювання</h2>
+        <button id="viewBookings">Показати мої бронювання</button>
+        <div id="bookingsTable"></div>
+    </div>
 </body>
 </html>
